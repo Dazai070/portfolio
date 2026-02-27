@@ -1,0 +1,250 @@
+/*
+  ==============================================
+  MODERN PROFESSIONAL DARK PORTFOLIO THEME
+  ==============================================
+
+  - Author: Gemini CLI Agent
+  - Date: 25th February 2026
+  - Requirements:
+    - Background: #050505
+    - Accent: Neon Red #ff1e1e
+    - Scrolling: Smooth
+    - Spacing: Clean System
+    - Reset: Default browser styles
+    - Typography: Modern (Poppins from Google Fonts)
+    - Design: Minimal, Elegant, Professional
+    - Responsive: Friendly
+    - Animations: Minimal
+*/
+
+/* 1. FONT IMPORT (Poppins) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* 2. CSS VARIABLES */
+:root {
+  /* Colors */
+  --color-bg: #000000;
+  --color-text-primary: #e6e6e6;
+  --color-text-secondary: #a9a9a9;
+  --color-accent: #ff1e1e;
+  --color-accent-hover: #ff4747;
+  --color-border: rgba(255, 255, 255, 0.1);
+
+  /* Typography */
+  --font-primary: 'Poppins', sans-serif;
+
+  /* Spacing System (based on 8px grid) */
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+  --space-xxl: 64px;
+
+  /* Other */
+  --border-radius: 8px;
+  --transition-speed: 0.3s ease;
+}
+
+/* 3. CSS RESET */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 4. BASE STYLES */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  /* offset for fixed navbar */
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+/* 5. TYPOGRAPHY */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: var(--space-sm);
+  color: var(--color-text-primary);
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.25rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+p {
+  margin-bottom: var(--space-md);
+  color: var(--color-text-secondary);
+}
+
+/* 6. CUSTOM SCROLLBAR */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-hover);
+}
+
+/* 7. PAGE TRANSITION ANIMATION */
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: pageEnter 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ── 8. GLOBAL SECTION LAYOUT UTILITIES ─────────────────────────
+   Single source of truth for all full-screen section containers.
+   Apply these classes in every section component to guarantee
+   identical grid alignment across the entire site.
+─────────────────────────────────────────────────────────────── */
+
+/* Centered column, 1000px cap, 24px gutters on all viewports */
+.section-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  width: 100%;
+}
+
+/* Consistent vertical breathing room for every full-screen section */
+.section-spacing {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+/* Uppercase red label above headings (e.g. "PROJECTS", "CONTACT") */
+.section-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+/* Primary section heading — centered to match the Me section */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  text-align: center;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+/* Supporting paragraph beneath the heading */
+.section-description {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+/* 7. RESPONSIVE DESIGN */
+/* Adjust base font size for different screen sizes */
+@media (max-width: 1024px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,48 @@
+.silhouette-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(300px, 65vw, 900px);
+    /* Exactly matching intro size */
+    z-index: 1;
+    /* Above background (0), below UI (10+) */
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.silhouette-image {
+    width: 100%;
+    height: auto;
+    opacity: 0.25;
+    /* Subtle background presence */
+
+    /* Exactly the filter from IntroOverlay, dropping the artificial drop-shadow to remove the black box */
+    filter: url(#sukunaRedFilterGlobal) contrast(1.5);
+
+    mix-blend-mode: screen;
+
+    /* Aggressive mask to erase the background slashes/splashes */
+    -webkit-mask-image: radial-gradient(circle 35% at 50% 50%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 45%);
+    mask-image: radial-gradient(circle 35% at 50% 50%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 45%);
+
+    /* Slow breathing animation */
+    animation: breathing 6s ease-in-out infinite;
+    transform-origin: center center;
+}
+
+@keyframes breathing {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.03);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

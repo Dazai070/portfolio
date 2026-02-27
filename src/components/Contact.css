@@ -1,0 +1,56 @@
+/*
+  ==============================================
+  CONTACT SECTION STYLING
+  Container + title alignment handled by global
+  .section-container / .section-title in index.css
+  ==============================================
+*/
+
+.contact-section {
+  min-height: 100vh;
+  animation: pageEnter 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ── Cards grid — mirrors Projects grid pattern ── */
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.contact-card {
+  background-color: #121212;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+.contact-card-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.contact-card-link {
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+  word-break: break-all;
+}
+
+.contact-card-link:hover {
+  color: var(--color-accent-hover);
+  text-shadow: 0 0 8px var(--color-accent-hover);
+}
